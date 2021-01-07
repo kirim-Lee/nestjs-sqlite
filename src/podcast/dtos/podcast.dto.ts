@@ -6,30 +6,32 @@ import { Episode } from '../entities/episode.entity';
 
 @InputType()
 export class PodcastSearchInput {
-  @Field((type) => Number)
+  @Field(type => Number)
   @IsNumber()
   id: number;
 }
 
 @ObjectType()
+export class PodcastsOuput extends CoreOutput {
+  @Field(type => [Podcast], { nullable: true })
+  podcasts?: Podcast[];
+}
+
+@ObjectType()
 export class PodcastOutput extends CoreOutput {
-  @Field((type) => Podcast, { nullable: true })
+  @Field(type => Podcast, { nullable: true })
   podcast?: Podcast;
 }
 
 @ObjectType()
 export class EpisodesOutput extends CoreOutput {
-  @Field((type) => [Podcast], { nullable: true })
+  @Field(type => [Episode], { nullable: true })
   episodes?: Episode[];
 }
 
 @InputType()
 export class EpisodesSearchInput {
-  @Field((type) => Number)
-  @IsNumber()
-  podcastId: number;
-
-  @Field((type) => Number)
+  @Field(type => Number)
   @IsNumber()
   episodeId: number;
 }

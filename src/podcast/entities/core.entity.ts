@@ -1,8 +1,9 @@
 import { Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { InputType, Field } from '@nestjs/graphql';
+import { InputType, Field, ObjectType } from '@nestjs/graphql';
 
-@Entity()
 @InputType('CoreEntityInput', { isAbstract: true })
+@ObjectType()
+@Entity()
 export class CoreEntity {
   @PrimaryGeneratedColumn()
   @Field(type => Number)

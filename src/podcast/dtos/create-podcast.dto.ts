@@ -3,11 +3,11 @@ import { IsString } from 'class-validator';
 
 @InputType()
 export class CreatePodcastDto {
-  @Field((_) => String)
+  @Field(type => String)
   @IsString()
   readonly title: string;
 
-  @Field((_) => String)
+  @Field(type => String)
   @IsString()
   readonly category: string;
 }

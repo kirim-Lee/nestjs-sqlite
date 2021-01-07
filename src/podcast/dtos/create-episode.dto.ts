@@ -4,11 +4,11 @@ import { PodcastSearchInput } from './podcast.dto';
 
 @InputType()
 export class CreateEpisodeDto extends PodcastSearchInput {
-  @Field(_ => String)
+  @Field(type => String)
   @IsString()
   readonly title: string;
 
-  @Field(_ => String)
+  @Field(type => String)
   @IsString()
   readonly category: string;
 }

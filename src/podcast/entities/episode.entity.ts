@@ -15,7 +15,9 @@ export class Episode extends CoreEntity {
   @Column()
   category: string;
 
-  @ManyToOne(type => Podcast, podcast => podcast.episodes)
+  @ManyToOne(type => Podcast, podcast => podcast.episodes, {
+    onDelete: 'CASCADE',
+  })
   podcast: Podcast;
 
   @RelationId((episode: Episode) => episode.podcast)

@@ -6,21 +6,21 @@ import { Episode } from '../entities/episode.entity';
 @InputType({ isAbstract: true })
 @ObjectType()
 export class UpdatePodcastDto extends PodcastSearchInput {
-  @Field((_) => String, { nullable: true })
+  @Field(type => String, { nullable: true })
   @IsString()
   @IsOptional()
   readonly title?: string;
 
-  @Field((_) => String, { nullable: true })
+  @Field(type => String, { nullable: true })
   @IsString()
   @IsOptional()
   category?: string;
 
-  @Field((_) => Number, { nullable: true })
+  @Field(type => Number, { nullable: true })
   @IsOptional()
   @IsNumber()
   rating?: number;
 
-  @Field((_) => [Episode], { nullable: true })
+  @Field(type => [Episode], { nullable: true })
   episodes?: Episode[];
 }
